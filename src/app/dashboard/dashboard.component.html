@@ -1,0 +1,12 @@
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Address</span>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Type your address"
+    aria-label="Type your address"
+    aria-describedby="basic-addon1"
+    (keyup)="getAddress($event)"
+  /> &nbsp;
+  <button type="button" class="btn btn-info" (click)="getNft(address)">Submit</button>
+</div>
