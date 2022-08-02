@@ -1,0 +1,31 @@
+<div class="card center-div">
+  <div class="card-body">
+    <h5 class="card-title">Please, Login First!</h5>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Auth Name:
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+        (keyup)="setName($event)"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Password:
+      </span>
+      <input
+        type="password"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+        (keyup)="setPass($event)"
+      />
+    </div>
+    <a class="btn btn-primary" (click)="submit()">Login</a> &nbsp;
+    <a class="btn btn-primary" routerLink="/treads">Treads</a>
+  </div>
+</div>

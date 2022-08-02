@@ -1,0 +1,49 @@
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">Contract address</span>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Type contract address"
+    aria-label="Type contract address"
+    aria-describedby="basic-addon1"
+    (keyup)="getAddress($event)"
+  />
+  &nbsp;
+  <button type="button" class="btn btn-info" (click)="getTreads()">
+    Submit
+  </button>
+</div>
+
+<ng-container *ngIf="isAddress; then trueTable; else falseTable"></ng-container>
+<ng-template #falseTable>
+  <h5>Please enter Contract address...</h5>
+</ng-template>
+<ng-template #trueTable>
+  <ng-container *ngIf="treads.length != 0; then valid; else inValid">
+  </ng-container>
+  <ng-template #valid>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Block No.</th>
+          <th scope="col">Time stamp</th>
+          <th scope="col">Price</th>
+          <th scope="col">Buyer add</th>
+          <th scope="col">Seller add</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of treads">
+          <th scope="row">{{ data.block_number }}</th>
+          <td>{{ data.block_timestamp | amTimeAgo }}</td>
+          <td>{{ data.price / 1000000000000000000 }} Eth</td>
+          <td>{{ data.buyer_address }}</td>
+          <td>{{ data.seller_address }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+  <ng-template #inValid>
+    <h5>No data found!</h5>
+  </ng-template>
+</ng-template>
